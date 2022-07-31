@@ -20,4 +20,4 @@ You can also tweak the script to taste if you want to adjust how your file is ge
 * `Shutter`: The video bounces left to right.
 * `Bounce+Shutter`: The simultaneous effects of `Bounce` and `Shutter`, slightly offset from each other
 * `Sporadic`: The video glitches and wobbles randomly.
-* `Disapear`: The video Disapears (Changes to 1x1 resolution) and wont restore until the message is reloaded.
+* `Disapear`: The video disapears (Changes to 1x1 resolution) and wont restore until the message is reloaded.
