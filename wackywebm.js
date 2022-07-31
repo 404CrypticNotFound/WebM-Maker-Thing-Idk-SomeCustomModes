@@ -33,6 +33,10 @@ switch (inputType.toLowerCase()) {
 		type.n = 3
 		type.w = 'Bounce_Shutter'
 		break
+	case 'disapear':
+		type.n = 4
+		type.w = 'Disapear'
+		break
 	default:
 		rawVideoPath.unshift(inputType)
 }
@@ -121,6 +125,9 @@ async function main() {
 			case 3:
 				height = index === 0 ? maxHeight : (Math.floor(Math.abs(Math.cos(index / (decimalFramerate / bouncesPerSecond) * Math.PI) * (maxHeight - delta))) + delta)
 				width = index === 0 ? maxWidth : (Math.floor(Math.abs(Math.sin(index / (decimalFramerate / bouncesPerSecond) * Math.PI) * (maxWidth - delta))) + delta)
+			case 4:
+				height = index === 0 ? maxHeight : 1
+				width = index === 0 ? maxWidth : 1
 		}
 		// Creates the respective resized frame based on the above.
 		await execSync(`ffmpeg -y -i "${path.join(workLocations.tempFrames, file)}" -c:v vp8 -b:v 1M -crf 10 -vf scale=${width}x${height} -aspect ${width}:${height} -r ${framerate} -f webm "${path.join(workLocations.tempResizedFrames, file + '.webm')}"`)
